@@ -109,3 +109,5 @@ temp/
 extracted_docs/
 extract_*.py
 *.txt
+
+.vercel
