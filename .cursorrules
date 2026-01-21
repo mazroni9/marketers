@@ -1,0 +1,28 @@
+# Rules for MR 20% Commission Engine & Um Al-Musawiqin
+
+- This project contains a commission engine called "MR 20%" and a marketers portal called "Um Al-Musawiqin".
+- Always treat `docs/MR20-SPEC.md` as the single source of truth for business rules and API contracts.
+- Do not change existing DASM auction logic unless the user explicitly asks.
+- When implementing features for MR 20%, prefer:
+  - Laravel (PHP) for backend (controllers, services, models, migrations).
+  - Reuse existing DASM patterns (naming, folder structure, Response format).
+- All public APIs must:
+  - Use JSON over HTTPS.
+  - Return `success` and `data` or `error`, as described in MR20-SPEC.
+- When implementing `/api/v1/transactions/report`:
+  - Implement full lifetime rules and tiers logic from MR20-SPEC section "Rules Engine".
+  - Never leave pseudo-code or `// TODO` markers. Always return complete working logic.
+
+When the user asks for changes:
+- First read MR20-SPEC.md and existing code.
+- Propose a short PLAN (3–6 bullet steps) in comments or in the chat.
+- Then implement only the code needed for that plan.
+- Avoid refactoring unrelated modules.
+
+Branching convention:
+- Use feature branches like:
+  - `feature/mr20-core`
+  - `feature/mr20-lifetime-rules`
+  - `feature/mr20-tiers`
+  - `feature/um-marketers-portal`.
+
